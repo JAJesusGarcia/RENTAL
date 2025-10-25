@@ -1,7 +1,9 @@
 "use client"
 
 import { Music, Radio, Monitor, Lightbulb } from "lucide-react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Button } from "./ui/button"
+
 
 
 const products = [

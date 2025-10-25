@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Music2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
+
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)

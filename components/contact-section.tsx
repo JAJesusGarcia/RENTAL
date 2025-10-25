@@ -4,10 +4,10 @@ import type React from "react"
 
 import { useState } from "react"
 import { Phone, Mail, MapPin, Instagram, MessageCircle, Youtube } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent } from "./ui/card"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Button } from "./ui/button"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
