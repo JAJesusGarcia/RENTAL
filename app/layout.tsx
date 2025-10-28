@@ -14,6 +14,34 @@ export const metadata: Metadata = {
   title: "Audio Arte Rental - Alquiler de Instrumentos y Equipos Profesionales",
   description:
     "Alquiler de instrumentos musicales, equipos de sonido y pantallas LED profesionales en Rosario, Santa Fe, Argentina",
+  keywords: [
+    "alquiler instrumentos musicales",
+    "alquiler equipos de sonido",
+    "pantallas LED Rosario",
+    "audio profesional",
+    "eventos Rosario",
+    "producción audiovisual",
+  ],
+  authors: [{ name: "Audio Arte Rental" }],
+  openGraph: {
+    title: "Audio Arte Rental - Alquiler de Instrumentos y Equipos Profesionales",
+    description:
+      "Alquiler de instrumentos musicales, equipos de sonido y pantallas LED profesionales en Rosario, Santa Fe, Argentina",
+    url: "https://audioarterental.com",
+    siteName: "Audio Arte Rental",
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Audio Arte Rental - Alquiler de Instrumentos y Equipos Profesionales",
+    description:
+      "Alquiler de instrumentos musicales, equipos de sonido y pantallas LED profesionales en Rosario, Santa Fe, Argentina",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   generator: "v0.app",
 }
 

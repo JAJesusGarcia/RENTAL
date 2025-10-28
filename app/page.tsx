@@ -1,11 +1,17 @@
-import { AboutSection } from "../components/about-section";
-import { BrandsSection } from "../components/brands-section";
-import { CatalogSection } from "../components/catalog-section";
-import { ContactSection } from "../components/contact-section";
-import { Footer } from "../components/footer";
-import { HeroCarousel } from "../components/hero-carrusel";
-import { Navbar } from "../components/navbar";
-import { TestimonialsSection } from "../components/testimonials-section";
+import { AboutSection } from "../components/about-section"
+import { BrandsSection } from "../components/brands-section"
+import { CatalogSection } from "../components/catalog-section"
+import { ContactSection } from "../components/contact-section"
+import { Footer } from "../components/footer"
+import { HeroCarousel } from "../components/hero-carrusel"
+import { Navbar } from "../components/navbar"
+import { TestimonialsSection } from "../components/testimonials-section"
+
+export const metadata = {
+  title: "Audio Arte Rental - Alquiler de Instrumentos y Equipos Profesionales",
+  description:
+    "Alquiler de instrumentos musicales, equipos de sonido y pantallas LED profesionales para eventos en Rosario, Santa Fe, Argentina",
+}
 
 export default function Home() {
   return (
@@ -21,4 +27,3 @@ export default function Home() {
     </main>
   )
 }
-

@@ -4,10 +4,10 @@ import type React from "react"
 
 import { useState } from "react"
 import { Phone, Mail, MapPin, Instagram, MessageCircle, Youtube } from "lucide-react"
-import { Card, CardContent } from "./ui/card"
-import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
+import { Card, CardContent } from "./ui/card"
+import { Input } from "./ui/input"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,11 +15,48 @@ export function ContactSection() {
     email: "",
     message: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null
+    message: string
+  }>({ type: null, message: "" })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Handle form submission
+    setIsLoading(true)
+    setSubmitStatus({ type: null, message: "" })
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "¡Mensaje enviado! Te contactaremos pronto.",
+        })
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Error al enviar el mensaje",
+        })
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Error de conexión. Por favor, intentá nuevamente.",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -50,6 +87,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="bg-background border-border text-foreground"
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div>
@@ -64,6 +102,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="bg-background border-border text-foreground"
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div>
@@ -77,13 +116,26 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-background border-border text-foreground min-h-32"
                     required
+                    disabled={isLoading}
                   />
                 </div>
+                {submitStatus.type && (
+                  <div
+                    className={`p-4 rounded-lg ${
+                      submitStatus.type === "success"
+                        ? "bg-green-500/10 text-green-500 border border-green-500/20"
+                        : "bg-red-500/10 text-red-500 border border-red-500/20"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
                 <Button
                   type="submit"
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  disabled={isLoading}
                 >
-                  Enviar Mensaje
+                  {isLoading ? "Enviando..." : "Enviar Mensaje"}
                 </Button>
               </form>
             </CardContent>
