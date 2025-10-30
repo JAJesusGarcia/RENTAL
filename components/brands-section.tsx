@@ -1,6 +1,8 @@
+import Image from "next/image"
+
 const brands = [
   { name: "Yamaha", logo: "/yamaha-logo.jpg" },
-  { name: "Shure", logo: "/placeholder.svg?height=80&width=160" },
+  { name: "Shure", logo: "/shure-logo.jpg" },
   { name: "Pioneer", logo: "/placeholder.svg?height=80&width=160" },
   { name: "JBL", logo: "/placeholder.svg?height=80&width=160" },
   { name: "Chauvet", logo: "/placeholder.svg?height=80&width=160" },
@@ -20,11 +22,15 @@ export function BrandsSection() {
               key={index}
               className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
             >
-              <img
-                src={brand.logo || "/placeholder.svg"}
-                alt={brand.name}
-                className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-              />
+              <div className="relative h-12 w-40">
+                <Image
+                  src={brand.logo || "/placeholder.svg"}
+                  alt={`${brand.name} logo`}
+                  fill
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  sizes="160px"
+                />
+              </div>
             </div>
           ))}
         </div>

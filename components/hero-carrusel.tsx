@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "./ui/button"
 
+import Image from "next/image"
+import { Button } from "./ui/button"
 
 const slides = [
   {
@@ -12,12 +13,12 @@ const slides = [
     subtitle: "Equipos de alto rendimiento para eventos, shows y producciones audiovisuales.",
   },
   {
-    image: "/led-screen-stage-concert-lights.jpg",
+    image: "/lar  ge-led-screen-on-concert-stage-with-colorful-li.jpg",
     title: "Pantallas LED de Última Generación",
     subtitle: "Tecnología visual impactante para tus eventos más importantes.",
   },
   {
-    image: "/musical-instruments-guitars-drums-professional.jpg",
+    image: "/professional-musical-instruments-guitars-drums-on-.jpg",
     title: "Instrumentos Musicales Profesionales",
     subtitle: "La mejor selección de instrumentos para músicos exigentes.",
   },
@@ -58,7 +59,14 @@ export function HeroCarousel() {
           }`}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background z-10" />
-          <img src={slide.image || "/placeholder.svg"} alt={slide.title} className="w-full h-full object-cover" />
+          <Image
+            src={slide.image || "/placeholder.svg"}
+            alt={slide.title}
+            fill
+            className="object-cover"
+            priority={index === 0}
+            quality={90}
+          />
         </div>
       ))}
 

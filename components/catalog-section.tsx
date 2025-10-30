@@ -1,10 +1,10 @@
 "use client"
 
 import { Music, Radio, Monitor, Lightbulb } from "lucide-react"
+
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
-
-
 
 const products = [
   {
@@ -21,13 +21,13 @@ const products = [
         name: "Batería Acústica Pearl",
         description: "Set completo con platillos Zildjian",
         price: "$15.000/día",
-        image: "/pearl-acoustic-drum-set.jpg",
+        image: "/pearl-acoustic-drum-set-with-zildjian-cymbals.jpg",
       },
       {
         name: "Teclado Yamaha",
         description: "Piano digital 88 teclas contrapesadas",
         price: "$10.000/día",
-        image: "/yamaha-digital-piano-keyboard.jpg",
+        image: "/yamaha-digital-piano-88-keys.jpg",
       },
     ],
   },
@@ -39,19 +39,19 @@ const products = [
         name: "Consola Digital Yamaha",
         description: "Mezcladora 32 canales con efectos",
         price: "$25.000/día",
-        image: "/yamaha-digital-mixing-console.jpg",
+        image: "/yamaha-digital-mixing-console-32-channels.jpg",
       },
       {
         name: "Sistema de Altavoces JBL",
         description: "Line array profesional 2000W",
         price: "$30.000/día",
-        image: "/jbl-professional-speakers-line-array.jpg",
+        image: "/jbl-professional-line-array-speakers.jpg",
       },
       {
         name: "Micrófonos Shure",
         description: "Set de 8 micrófonos inalámbricos",
         price: "$12.000/día",
-        image: "/shure-wireless-microphones.jpg",
+        image: "/shure-wireless-microphones-set.jpg",
       },
     ],
   },
@@ -63,13 +63,13 @@ const products = [
         name: "Pantalla LED P3.9",
         description: "Módulos 6x3m alta resolución indoor/outdoor",
         price: "$50.000/día",
-        image: "/led-screen-stage-display.jpg",
+        image: "/large-led-screen-display-stage.jpg",
       },
       {
         name: "Pantalla LED P2.6",
         description: "Ultra HD para eventos corporativos",
         price: "$70.000/día",
-        image: "/ultra-hd-led-display-screen.jpg",
+        image: "/ultra-hd-led-display-screen-corporate-event.jpg",
       },
     ],
   },
@@ -81,13 +81,13 @@ const products = [
         name: "Moving Heads Chauvet",
         description: "Set de 8 cabezales móviles LED",
         price: "$20.000/día",
-        image: "/chauvet-moving-head-lights.jpg",
+        image: "/chauvet-moving-head-led-lights.jpg",
       },
       {
         name: "Par LED RGBW",
         description: "Pack de 12 reflectores LED",
         price: "$15.000/día",
-        image: "/led-par-lights-rgbw.jpg",
+        image: "/led-par-lights-rgbw-stage-lighting.jpg",
       },
     ],
   },
@@ -117,11 +117,13 @@ export function CatalogSection() {
                   key={itemIndex}
                   className="bg-card border-border hover:border-primary transition-all duration-300 group overflow-hidden"
                 >
-                  <div className="relative overflow-hidden">
-                    <img
+                  <div className="relative overflow-hidden h-48">
+                    <Image
                       src={item.image || "/placeholder.svg"}
                       alt={item.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
