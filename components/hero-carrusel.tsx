@@ -13,7 +13,7 @@ const slides = [
     subtitle: "Equipos de alto rendimiento para eventos, shows y producciones audiovisuales.",
   },
   {
-    image: "/lar  ge-led-screen-on-concert-stage-with-colorful-li.jpg",
+    image: "/large-led-screen-on-concert-stage-with-colorful-li.jpg",
     title: "Pantallas LED de Última Generación",
     subtitle: "Tecnología visual impactante para tus eventos más importantes.",
   },
