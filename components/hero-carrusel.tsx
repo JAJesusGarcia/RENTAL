@@ -8,17 +8,17 @@ import { Button } from "./ui/button"
 
 const slides = [
   {
-    image: "/professional-audio-mixing-console-studio.jpg",
+    image: "/professional-audio-mixing-console-studio.webp",
     title: "Alquiler de Instrumentos, Sonido y Pantallas LED Profesionales",
     subtitle: "Equipos de alto rendimiento para eventos, shows y producciones audiovisuales.",
   },
   {
-    image: "/large-led-screen-on-concert-stage-with-colorful-li.jpg",
+    image: "/large-led-screen-on-concert-stage-with-colorful-li.webp",
     title: "Pantallas LED de Última Generación",
     subtitle: "Tecnología visual impactante para tus eventos más importantes.",
   },
   {
-    image: "/professional-musical-instruments-guitars-drums-on-.jpg",
+    image: "/professional-musical-instruments-guitars-drums-on-.webp",
     title: "Instrumentos Musicales Profesionales",
     subtitle: "La mejor selección de instrumentos para músicos exigentes.",
   },
